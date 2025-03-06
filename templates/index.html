@@ -21,12 +21,30 @@
 		</nav>
 	</header>
 	<main class="flex items-center justify-center flex-grow p-8">
-		<div id="grid" class="grid grid-cols-3 gap-1 border border-gray-700">
-			{% for row in grid %}
-			{% for item in row %}
-			<div class="bg-gray-700 w-32 h-32 transition-colors duration-200 hover:bg-gray-500">{{ item }}</div>
-			{% endfor %}
-			{% endfor %}
+		<div class="flex flex-col">
+			<div class="flex flex-row-reverse gap-1 border border-gray-700">
+				{% for tquestion in top_questions %}
+				<div class="text-center bg-gray-600 w-32 h-32 p-2 font-bold border border-gray-700">
+					{{ tquestion }}
+				</div>
+				{% endfor %}
+			</div>
+			<div class="flex flex-row">
+				<div class="flex flex-col gap-1 border border-gray-700">
+					{% for lquestion in left_questions %}
+					<div class="text-center bg-gray-600 w-32 h-32 p-2 font-bold border border-gray-700">
+						{{ lquestion }}
+					</div>
+					{% endfor %}
+				</div>
+				<div class="grid grid-cols-3 gap-1 border border-gray-700">
+					{% for row in grid %}
+					{% for item in row %}
+					<div class="bg-gray-700 w-32 h-32 transition-colors duration-200 hover:bg-gray-500">{{ item }}</div>
+					{% endfor %}
+					{% endfor %}
+				</div>
+			</div>
 		</div>
 	</main>
 </body>
